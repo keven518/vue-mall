@@ -1,12 +1,10 @@
 <template>
-  <div class="header">
-    我是header
-  </div>
-
+  <div>I am goods</div>
 </template>
 
 <script type="text/ecmascript-6">
   export default {
+
   };
 </script>
 
