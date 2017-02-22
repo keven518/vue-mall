@@ -4,7 +4,7 @@
     <div class="tab border-1px">
       <div class="tab-item">
         <router-link v-bind:to="'/goods'">
-          商品
+          商品{{title}}
         </router-link>
       </div>
       <div class="tab-item">
@@ -25,11 +25,24 @@
   </div>
 </template>
 
-<script>
+<script type="text/ecmascript-6">
 import Hello from './components/Hello';
 import header from './components/header/header.vue';
-
+import data from 'common/json/data.json';
 export default {
+  data() {
+    return {
+      seller: {},
+      title: 'kv520'
+    };
+  },
+  created() {
+    this.$http.get('/api/seller').then((res) => {
+      console.log('kv');
+      console.log(res.body);
+    });
+    this.seller = data.seller;
+  },
   components: {
     Hello,
     'v-header': header
