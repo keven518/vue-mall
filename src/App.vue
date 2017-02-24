@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-header></v-header>
+    <v-header :seller="seller"></v-header>
     <div class="tab border-1px">
       <div class="tab-item">
         <router-link v-bind:to="'/goods'">
@@ -29,19 +29,28 @@
 import Hello from './components/Hello';
 import header from './components/header/header.vue';
 import data from 'common/json/data.json';
+const ERR_OK = 0;
+
 export default {
   data() {
     return {
       seller: {},
-      title: 'kv520'
+      title: 'kv520',
+      seller2: {}
     };
   },
   created() {
     this.$http.get('/api/seller').then((res) => {
       console.log('kv');
       console.log(res.body);
+      console.log(res.body.errno);
+      if (res.body.errno === ERR_OK) {
+        this.seller = res.body.data;
+        console.log('kv8');
+        console.log(res.body.data);
+      }
     });
-    this.seller = data.seller;
+    this.seller2 = data.seller;
   },
   components: {
     Hello,
