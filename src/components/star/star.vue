@@ -37,7 +37,6 @@
         while (result.length < LENGTH) {
           result.push(CLS_OFF);
         }
-        console.log(result);
         return result;
       }
     }

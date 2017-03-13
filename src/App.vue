@@ -4,7 +4,7 @@
     <div class="tab border-1px">
       <div class="tab-item">
         <router-link v-bind:to="'/goods'">
-          商品{{title}}
+          商品
         </router-link>
       </div>
       <div class="tab-item">
@@ -41,13 +41,8 @@ export default {
   },
   created() {
     this.$http.get('/api/seller').then((res) => {
-      console.log('kv');
-      console.log(res.body);
-      console.log(res.body.errno);
       if (res.body.errno === ERR_OK) {
         this.seller = res.body.data;
-        console.log('kv8');
-        console.log(res.body.data);
       }
     });
     this.seller2 = data.seller;
