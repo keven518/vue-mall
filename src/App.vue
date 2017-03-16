@@ -20,13 +20,10 @@
     </div>
     <!--<img src="./assets/logo.png">-->
     <router-view></router-view>
-    <hello></hello>
-    <div class="kv">adsfasdf11111</div>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
-import Hello from './components/Hello';
 import header from './components/header/header.vue';
 import data from 'common/json/data.json';
 const ERR_OK = 0;
@@ -48,7 +45,6 @@ export default {
     this.seller2 = data.seller;
   },
   components: {
-    Hello,
     'v-header': header
   }
 };
