@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4a08e8c8-bcd8-4e2c-bc85-4427d1576366" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/components/shopcart/shopcart.vue" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
@@ -27,17 +29,17 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="goods.vue" pinned="false" current-in-tab="false">
+      <file leaf-file-name="goods.vue" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/components/goods/goods.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
+            <state relative-caret-position="114">
               <caret line="87" column="7" selection-start-line="87" selection-start-column="7" selection-end-line="88" selection-end-column="17" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="shopcart.vue" pinned="false" current-in-tab="true">
+      <file leaf-file-name="shopcart.vue" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/shopcart/shopcart.vue">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="190">
@@ -349,15 +351,15 @@
       <updated>1487664811311</updated>
       <workItem from="1487664820405" duration="1232000" />
       <workItem from="1487917990435" duration="8337000" />
-      <workItem from="1489644690549" duration="6060000" />
+      <workItem from="1489644690549" duration="6179000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15629000" />
+    <option name="totallyTimeSpent" value="15748000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26264882" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -486,18 +488,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/goods/goods.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="87" column="7" selection-start-line="87" selection-start-column="7" selection-end-line="88" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/shopcart/shopcart.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="190">
           <caret line="10" column="4" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/goods/goods.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="87" column="7" selection-start-line="87" selection-start-column="7" selection-end-line="88" selection-end-column="17" />
           <folding />
         </state>
       </provider>
