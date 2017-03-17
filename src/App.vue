@@ -19,7 +19,7 @@
       </div>
     </div>
     <!--<img src="./assets/logo.png">-->
-    <router-view></router-view>
+    <router-view :seller="seller"></router-view>
   </div>
 </template>
 
