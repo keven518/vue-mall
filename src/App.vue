@@ -25,15 +25,13 @@
 
 <script type="text/ecmascript-6">
 import header from './components/header/header.vue';
-import data from 'common/json/data.json';
 const ERR_OK = 0;
 
 export default {
   data() {
     return {
       seller: {},
-      title: 'kv520',
-      seller2: {}
+      title: 'kv520'
     };
   },
   created() {
@@ -42,7 +40,6 @@ export default {
         this.seller = res.body.data;
       }
     });
-    this.seller2 = data.seller;
   },
   components: {
     'v-header': header

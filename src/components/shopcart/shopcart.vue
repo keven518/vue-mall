@@ -1,36 +1,62 @@
 <template>
-  <div class="shopcart">
-    <div class="content">
-      <div class="content-left">
-        <div class="logo-wrapper">
-          <div class="logo" :class="{'highlight':totalCount>0}">
-            <i class="iconfont icon-gouwuche" :class="{'highlight':totalCount>0}"></i>
-          </div>
-          <div class="num" v-show="totalCount>0">{{totalCount}}</div>
-        </div>
-        <div class="price" :class="{'highlight':totalPrice>0}">￥{{totalPrice}}</div>
-        <div class="desc">配送费￥{{deliveryPrice}}元</div>
-      </div>
-      <div class="content-right">
-        <div class="pay" :class="payClass">
-          {{payDesc}}
-        </div>
-      </div>
-    </div>
-    <div class="ball-container">
-      <div v-for="ball in balls">
-        <transition name="drop" @before-enter="beforeEnter" @enter="enter" @after-enter="afterEnter">
-          <div v-show="ball.show" class="ball">
-            <div class="inner inner-hook">
+  <div>
+    <div class="shopcart">
+      <div class="content" @click="togglelist">
+        <div class="content-left">
+          <div class="logo-wrapper">
+            <div class="logo" :class="{'highlight':totalCount>0}">
+              <i class="iconfont icon-gouwuche" :class="{'highlight':totalCount>0}"></i>
             </div>
+            <div class="num" v-show="totalCount>0">{{totalCount}}</div>
           </div>
-        </transition>
+          <div class="price" :class="{'highlight':totalPrice>0}">￥{{totalPrice}}</div>
+          <div class="desc">配送费￥{{deliveryPrice}}元</div>
+        </div>
+        <div class="content-right">
+          <div class="pay" :class="payClass">
+            {{payDesc}}
+          </div>
+        </div>
       </div>
+      <div class="ball-container">
+        <div v-for="ball in balls">
+          <transition name="drop" @before-enter="beforeEnter" @enter="enter" @after-enter="afterEnter">
+            <div v-show="ball.show" class="ball">
+              <div class="inner inner-hook">
+              </div>
+            </div>
+          </transition>
+        </div>
+      </div>
+      <transition name="fade">
+        <div class="shopcart-list" v-show="listShow">
+          <div class="list-header">
+            <h1 class="title">购物车</h1>
+            <span class="empty">清空</span>
+          </div>
+          <div class="list-content">
+            <ul>
+              <li class="food" v-for="food in selectFoods">
+                <span class="name">{{food.name}}</span>
+                <div class="price">
+                  <span>￥{{food.price*food.count}}</span>
+                </div>
+                <div class="cartcontrol-wrapper">
+                  <cartcontrol :food="food"></cartcontrol>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </transition>
     </div>
   </div>
+
 </template>
 
 <script type="text/ecmascript-6">
+  import cartcontrol from 'components/cartcontrol/cartcontrol';
+
   export default {
     props: {
       selectFoods: {
@@ -70,7 +96,8 @@
             show: false
           }
         ],
-        dropBall: []
+        dropBall: [],
+        fold: true
       };
     },
     computed: {
@@ -104,6 +131,14 @@
         } else {
           return 'enough';
         }
+      },
+      listShow() {
+        if (!this.totalCount) {
+          this.fold = true;
+          return false;
+        }
+        let show = !this.fold;
+        return show;
       }
     },
     methods: {
@@ -118,6 +153,12 @@
             return;
           }
         }
+      },
+      togglelist() {
+        if (!this.totalCount) {
+          return;
+        }
+        this.fold = !this.fold;
       },
       beforeEnter(el) {
         let count = this.balls.length;
@@ -153,6 +194,9 @@
           el.style.display = 'none';
         }
       }
+    },
+    components: {
+      cartcontrol
     }
   };
 </script>
@@ -266,4 +310,37 @@
           background rgb(0, 160, 220)
           transition: all 0.4s linear
           z-index 10
+    .shopcart-list
+      position absolute
+      top 0
+      left 0
+      z-index -1
+      width 100%
+      transform translate3d(0, -100%, 0)
+      &.fade-enter-active, &.fade-leave-active {
+        transition: all 0.5s
+        transform translate3d(0, -100%, 0)
+      }
+      &.fade-enter, &.fade-leave-active {
+        transform translate3d(0, 0, 0)
+      }
+      .list-header
+        height: 40px
+        line-height: 40px
+        padding: 0 18px
+        background: #f3f5f7
+        border-bottom: 1px solid rgba(7, 17, 27, 0.1)
+        .title
+          float: left
+          font-size: 14px
+          color: rgb(7, 17, 27)
+        .empty
+          float: right
+          font-size: 12px
+          color: rgb(0, 160, 220)
+
+
+      .list-containt
+        padding: 0 18px
+        max-height: 217
 </style>
