@@ -12,7 +12,7 @@
           <div class="price" :class="{'highlight':totalPrice>0}">￥{{totalPrice}}</div>
           <div class="desc">配送费￥{{deliveryPrice}}元</div>
         </div>
-        <div class="content-right">
+        <div class="content-right" @click.stop.prevent="pay">
           <div class="pay" :class="payClass">
             {{payDesc}}
           </div>
@@ -32,9 +32,9 @@
         <div class="shopcart-list" v-show="listShow">
           <div class="list-header">
             <h1 class="title">购物车</h1>
-            <span class="empty">清空</span>
+            <span class="empty" @click="empty">清空</span>
           </div>
-          <div class="list-content">
+          <div class="list-content" ref="listContent">
             <ul>
               <li class="food" v-for="food in selectFoods">
                 <span class="name">{{food.name}}</span>
@@ -50,11 +50,15 @@
         </div>
       </transition>
     </div>
+    <transition name="fade">
+      <div class="list-mask" v-show="listShow"></div>
+    </transition>
   </div>
 
 </template>
 
 <script type="text/ecmascript-6">
+  import BScroll from 'better-scroll';
   import cartcontrol from 'components/cartcontrol/cartcontrol';
 
   export default {
@@ -96,7 +100,7 @@
             show: false
           }
         ],
-        dropBall: [],
+        dropBalls: [],
         fold: true
       };
     },
@@ -138,6 +142,17 @@
           return false;
         }
         let show = !this.fold;
+        if (show) {
+          this.$nextTick(() => {
+            if (!this.scroll) {
+              this.scroll = new BScroll(this.$refs.listContent, {
+                click: true
+              });
+            } else {
+              this.scroll.refresh();
+            }
+          });
+        }
         return show;
       }
     },
@@ -193,6 +208,20 @@
           ball.show = false;
           el.style.display = 'none';
         }
+      },
+      hidelist() {
+        this.fold = true;
+      },
+      empty() {
+        this.selectFoods.forEach((food) => {
+          food.count = 0;
+        });
+      },
+      pay() {
+        if (this.totalPrice < this.minPrice) {
+          return;
+        }
+        window.alert('支付￥' + this.totalPrice + '元');
       }
     },
     components: {
@@ -202,6 +231,8 @@
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
+  @import "../../common/stylus/mixin.styl"
+
   .shopcart
     position: fixed
     left: 0
@@ -340,7 +371,51 @@
           color: rgb(0, 160, 220)
 
 
-      .list-containt
+      .list-content
         padding: 0 18px
-        max-height: 217
+        max-height: 217px
+        overflow: hidden
+        background: #fff
+        .food
+          position: relative
+          padding: 12px 0
+          box-sizing: border-box
+          border-1px(rgba(7, 17, 27, 0.1))
+          .name
+            line-height: 24px
+            font-size: 14px
+            color: rgb(7, 17, 27)
+          .price
+            position: absolute
+            right: 90px
+            bottom: 12px
+            line-height: 24px
+            font-size: 14px
+            font-weight: 700
+            color: rgb(240, 20, 20)
+          .cartcontrol-wrapper
+            position: absolute
+            right: 0
+            bottom: 6px
+
+  .list-mask
+    position fixed
+    top 0
+    left 0
+    width 100%
+    height 100%
+    z-index 40
+    backdrop-filter blur(10px)
+    -webkit-backdrop-filter blur(10px)
+    opacity 1
+    background rgba(7, 17, 27, 0.6)
+    &.fade-enter-active, &.fade-leave-active {
+      opacity 1
+      transition: all 0.5s
+      background rgba(7, 17, 27, 0.6)
+    }
+    &.fade-enter, &.fade-leave-active {
+      opacity 0
+      background rgba(7, 17, 27, 0)
+    }
 </style>
