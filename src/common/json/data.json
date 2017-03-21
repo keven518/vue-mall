@@ -84,7 +84,7 @@
               "avatar": "http://static.galileo.xiaojukeji.com/static/tms/default_header.png"
             }
           ],
-          "icon": "images/1.jpeg",
+          "icon": "static/images/1.jpeg",
           "image": "http://fuss10.elemecdn.com/c/cd/c12745ed8a5171e13b427dbc39401jpeg.jpeg?imageView2/1/w/750/h/750"
         },
         {
@@ -118,7 +118,7 @@
             }
           ],
           "info": "",
-          "icon": "http://fuss10.elemecdn.com/c/6b/29e3d29b0db63d36f7c500bca31d8jpeg.jpeg?imageView2/1/w/114/h/114",
+          "icon": "static/images/2.jpeg",
           "image": "http://fuss10.elemecdn.com/c/6b/29e3d29b0db63d36f7c500bca31d8jpeg.jpeg?imageView2/1/w/750/h/750"
         },
         {
@@ -152,7 +152,7 @@
               "avatar": "http://static.galileo.xiaojukeji.com/static/tms/default_header.png"
             }
           ],
-          "icon": "http://fuss10.elemecdn.com/f/28/a51e7b18751bcdf871648a23fd3b4jpeg.jpeg?imageView2/1/w/114/h/114",
+          "icon": "static/images/3.jpeg",
           "image": "http://fuss10.elemecdn.com/f/28/a51e7b18751bcdf871648a23fd3b4jpeg.jpeg?imageView2/1/w/750/h/750"
         },
         {
@@ -774,7 +774,7 @@
               "avatar": "http://static.galileo.xiaojukeji.com/static/tms/default_header.png"
             }
           ],
-          "icon": "http://fuss10.elemecdn.com/c/6b/29e3d29b0db63d36f7c500bca31d8jpeg.jpeg?imageView2/1/w/114/h/114",
+          "icon": "static/images/2.jpeg",
           "image": "http://fuss10.elemecdn.com/c/6b/29e3d29b0db63d36f7c500bca31d8jpeg.jpeg?imageView2/1/w/750/h/750"
         },
         {
@@ -808,7 +808,7 @@
               "avatar": "http://static.galileo.xiaojukeji.com/static/tms/default_header.png"
             }
           ],
-          "icon": "http://fuss10.elemecdn.com/f/28/a51e7b18751bcdf871648a23fd3b4jpeg.jpeg?imageView2/1/w/114/h/114",
+          "icon": "static/images/3.jpeg",
           "image": "http://fuss10.elemecdn.com/f/28/a51e7b18751bcdf871648a23fd3b4jpeg.jpeg?imageView2/1/w/750/h/750"
         },
         {
@@ -949,7 +949,7 @@
               "avatar": "http://static.galileo.xiaojukeji.com/static/tms/default_header.png"
             }
           ],
-          "icon": "images/1.jpeg",
+          "icon": "static/images/1.jpeg",
           "image": "http://fuss10.elemecdn.com/c/cd/c12745ed8a5171e13b427dbc39401jpeg.jpeg?imageView2/1/w/750/h/750"
         },
         {
